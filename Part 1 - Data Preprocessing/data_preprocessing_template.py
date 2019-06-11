@@ -10,7 +10,7 @@ import pandas as pd
 dataset = pd.read_csv("data.csv")
 
 X = dataset.iloc[:,:-1].values
-y = dataset.iloc[:,-1:].values
+y = dataset.iloc[:,-1].values
 
 
 #   3. taking care of missing data
