@@ -9,8 +9,8 @@ import pandas as pd
 
 dataset = pd.read_csv("data.csv")
 
-X = dataset.iloc[:,:-1].values
-y = dataset.iloc[:,-1].values
+X = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, 3].values
 
 
 #   3. taking care of missing data
@@ -32,11 +32,11 @@ labelencoder_X = LabelEncoder()
 #X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
 
 
-preprocessor = make_column_transformer( (OneHotEncoder(), [0]), remainder="passthrough")
+preprocessor = make_column_transformer((OneHotEncoder(), [0]), remainder="passthrough")
 X = preprocessor.fit_transform(X)
 
-labelencoder_Y = LabelEncoder()
-y[:, 0] = labelencoder_Y.fit_transform(y[:, 0])
+labelencoder_y = LabelEncoder()
+y = labelencoder_y.fit_transform(y)
 
 #   5. Splitting the test for the training and the test split
 
