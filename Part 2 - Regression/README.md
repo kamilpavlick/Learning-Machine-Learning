@@ -1,4 +1,4 @@
-- Simple Linear Regression
+- Simple Linear Regression http://dullcode.com/simple-linear-regression/
 - Multiple Linear Regression
 - Polynomial Regression
 - Support Vector for Regression (SVR)
