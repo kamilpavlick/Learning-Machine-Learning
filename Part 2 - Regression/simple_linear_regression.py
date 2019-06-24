@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('data.csv')
+dataset = pd.read_csv('simple_linear_regression.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 1].values
 
@@ -33,7 +33,7 @@ y_pred = regressor.predict(X_test)
 # Visualising the Training set results
 plt.scatter(X_train, y_train, color = 'red')
 plt.plot(X_train, regressor.predict(X_train), color = 'blue')
-plt.title('Salary vs Experience (Training set)')
+plt.title('Salary vs Experience')
 plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
 plt.show()
