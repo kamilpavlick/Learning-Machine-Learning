@@ -51,8 +51,4 @@ X_train = sc_X.fit_transform(X_train)
 # For test set we only use transform, because scaler was fitted to the training set
 X_test = sc_X.transform(X_test)
 
-sc = pd.plotting.scatter_matrix(dataset, alpha=0.2)
-
-
-
 
