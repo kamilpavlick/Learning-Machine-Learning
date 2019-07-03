@@ -10,14 +10,12 @@ dataset = pd.read_csv('multiple_linear_regression.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 4].values
 
-df = pd.DataFrame(X)
-
-X = pd.get_dummies(df, columns=[3])
+X = pd.get_dummies(pd.DataFrame(X), columns=[3]).values
 
 # Avoiding the Dummy Variable Trap
-X = X[:, 1:]
+X = X[:, :-1]
 
-#pd.plotting.scatter_matrix(dataset)
+pd.plotting.scatter_matrix(dataset)
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
@@ -38,3 +36,27 @@ regressor.fit(X_train, y_train)
 
 # Predicting the Test set results
 y_pred = regressor.predict(X_test)
+
+# Checking p-value for our variables
+
+import statsmodels.formula.api as sm
+X = np.append(arr = np.ones((50, 1)).astype(float), values = X, axis = 1)
+X_opt = (X[:, [0, 1, 2, 3, 4, 5]]).astype(float)
+regressor_OLS = sm.OLS(endog=y, exog=X_opt, missing='drop').fit()
+regressor_OLS.summary()
+
+X_opt = X[:, [0, 1, 3, 4, 5]].astype(float)
+regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+regressor_OLS.summary()
+
+X_opt = X[:, [0, 3, 4, 5]].astype(float)
+regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+regressor_OLS.summary()
+
+X_opt = X[:, [0, 3, 5]].astype(float)
+regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+regressor_OLS.summary()
+
+X_opt = X[:, [0, 3]].astype(float)
+regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+regressor_OLS.summary()
