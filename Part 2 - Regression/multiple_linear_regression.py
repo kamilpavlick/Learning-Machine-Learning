@@ -41,8 +41,9 @@ y_pred = regressor.predict(X_test)
 
 import statsmodels.formula.api as sm
 X = np.append(arr = np.ones((50, 1)).astype(float), values = X, axis = 1)
+
 X_opt = (X[:, [0, 1, 2, 3, 4, 5]]).astype(float)
-regressor_OLS = sm.OLS(endog=y, exog=X_opt, missing='drop').fit()
+regressor_OLS = sm.OLS(endog=y, exog=X_opt).fit()
 regressor_OLS.summary()
 
 X_opt = X[:, [0, 1, 3, 4, 5]].astype(float)
