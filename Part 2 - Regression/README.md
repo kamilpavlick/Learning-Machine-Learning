@@ -1,5 +1,5 @@
 - Simple Linear Regression http://dullcode.com/simple-linear-regression/
-- Multiple Linear Regression
+- Multiple Linear Regression http://dullcode.com/multiple-linear-regression/
 - Polynomial Regression
 - Support Vector for Regression (SVR)
 - Decision Tree Classification
