@@ -23,7 +23,7 @@ model.fit(X_poly, y)
 # Visualising the Polynomial Regression results
 plt.scatter(X, y, color = 'red')
 plt.plot(X, model.predict(X_poly), color = 'blue')
-plt.title('Linear Regression Example')
+plt.title('Polynomial Regression Example')
 plt.xlabel('Position level')
 plt.ylabel('Salary')
 plt.show()
